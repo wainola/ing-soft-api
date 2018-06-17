@@ -46,6 +46,7 @@ server.post('/login', UserHandler.login)
 // ENSURANCE ENDPOINTS
 // GUARDIAN ENDPOINTS
 // PAYMENT ENDPOINTS
+server.get('/api/payment/:idStudent', PaymentHandler.getPaymentByStudent)
 // STUDENT ENDPOINTS
 
 // TEST ENDPOINT
