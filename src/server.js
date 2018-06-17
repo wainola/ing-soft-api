@@ -4,6 +4,10 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 import cors from 'cors'
 
+//MIDDLEWARES
+import authorization from './middlewares/authorization'
+import accessControlList from './middlewares/access_control_list'
+
 //HANDLERS
 import UserHandler from './handlers/UserHandler'
 import ClientHandler from './handlers/ClientHandler'
