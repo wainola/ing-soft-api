@@ -32,8 +32,8 @@ express.json()
 server.use(cors())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: false}))
-server.use('/api', authorization)
-server.use('/api', accessControlList)
+// server.use('/api', authorization)
+// server.use('/api', accessControlList)
 
 
 //Public Endpoints
@@ -51,5 +51,5 @@ server.post('/login', UserHandler.login)
 // TEST ENDPOINT
 server.get('/api/test', TestHandler.testEndpoint)
 
-server.liste(port)
+server.listen(port)
 console.log(`Server running at: ${port}`)

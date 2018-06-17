@@ -14,7 +14,7 @@ function accessControlList(request, response, next){
   const secretKey = process.env.SECRET_KEY
   jwt.verify(token, secretKey, (err, decoded) => {
     if(err){
-      return response.status(401).send(response.json(reply))
+      return response.status(401).send(reply)
     }
 
     const { role } = decoded;
@@ -25,7 +25,7 @@ function accessControlList(request, response, next){
     const methodAndURL = `${request.method}${request.baseUrl}${request.path}`
 
     if(!ACL[role].includes(methodAndURL)){
-      return response.status(403).send(response.json(reply))
+      return response.status(403).send(reply)
     }
 
     next()
