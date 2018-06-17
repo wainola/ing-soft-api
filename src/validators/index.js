@@ -16,6 +16,7 @@ export const userSchema = Joi.object().keys({
 export const credentialsSchema = Joi.object().keys({
   credentials: Joi.object().keys({
     email: Joi.string().email().required(),
-    password: Joi.string().min(7).required()
+    password: Joi.string().min(7).required(),
+    ROLE: Joi.any().valid(['STUDENT', 'GUARDIAN', 'EXECUTIVE']).required()
   }).required()
 })
