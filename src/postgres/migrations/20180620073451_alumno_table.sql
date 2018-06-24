@@ -5,8 +5,8 @@ CREATE TABLE ALUMNO(
   nombre_alumno text not null,
   apellido_alumno text not null,
   correo_alumno text not null,
-  rut_apoderado text references apoderado(rut_apoderado),
-  cod_cliente text references cliente(cod_cliente)
+  rut_apoderado text references APODERADO(rut_apoderado),
+  cod_cliente text references CLIENTE(cod_cliente)
 )
 
 -- +goose Down

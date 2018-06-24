@@ -4,8 +4,8 @@ CREATE TABLE CONTRATO(
   cod_contrato text not null primary key,
   descripcion_contrato text not null,
   monto_pagar numeric,
-  cod_cliente text references cliente(cod_cliente),
-  rut_empleado text references empleado(rut_empleado)
+  cod_cliente text references CLIENTE(cod_cliente),
+  rut_empleado text references EMPLEADO(rut_empleado)
 )
 
 -- +goose Down

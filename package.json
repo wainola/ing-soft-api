@@ -24,7 +24,7 @@
       }
     },
     "dev": {
-      "command": "nodemon --exec ./node_modules/.bin/babel-node --presets=es2015,stage-0 -- src/server.js",
+      "command": "nodemon src/server.js --exec babel-node",
       "env": {
         "NODE_ENV": "development"
       }
