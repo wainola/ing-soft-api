@@ -5,16 +5,17 @@ const LIMIT_AMOUMT = 99999999
 
 export const userSchema = Joi.object().keys({
   user: Joi.object().keys({
-    email: Joi.string().email().required(),
-    password: Joi.string().min(7).required(),
-    role: Joi.any().valid(['STUDENT', 'GUARDIAN', 'EXECUTIVE']).required()
+    rut_alumno: Joi.string().required(),
+    nombre_alumno: Joi.string().required(),
+    apellido_alumno: Joi.string().required(),
+    correo_alumno: Joi.string().required(),
+    password: Joi.string().min(7).required()
   }).required()
 })
 
 export const credentialsSchema = Joi.object().keys({
   credentials: Joi.object().keys({
-    email: Joi.string().email().required(),
-    password: Joi.string().min(7).required(),
-    ROLE: Joi.any().valid(['STUDENT', 'GUARDIAN', 'EXECUTIVE']).required()
+    rut: Joi.string().required(),
+    password: Joi.string().min(7).required()
   }).required()
 })
