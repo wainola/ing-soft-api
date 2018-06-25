@@ -32,8 +32,8 @@ express.json()
 server.use(cors())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: false}))
-server.use('/api', authorization)
-server.use('/api', accessControlList)
+// server.use('/api', authorization)
+// server.use('/api', accessControlList)
 
 
 //Public Endpoints
@@ -46,7 +46,7 @@ server.post('/login', UserHandler.login)
 // ENSURANCE ENDPOINTS
 // GUARDIAN ENDPOINTS
 // PAYMENT ENDPOINTS
-server.get('/api/payment/:idStudent', PaymentHandler.getPaymentByStudent)
+server.get('/api/payment/:rut_alumno', PaymentHandler.getPaymentByStudent)
 server.post('/api/payment', PaymentHandler.postPayment)
 // STUDENT ENDPOINTS
 
