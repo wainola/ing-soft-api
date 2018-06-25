@@ -2,8 +2,12 @@ import bcrypt from 'bcrypt'
 import * as jwt from 'jsonwebtoken'
 import moment from 'moment'
 import Joi from 'joi'
+import { Client } from 'pg'
 
 import { userSchema, credentialsSchema } from '../validators/'
+
+const client = new Client()
+client.connect()
 
 const SALT_ROUNDS = 10
 
@@ -32,9 +36,7 @@ class UserHandler{
       reply = {
         data: {
           email: user.email,
-          name: user.name,
-          phone: user.phone,
-          role: user.phone
+          password: hashedPassword
         }
       }
 

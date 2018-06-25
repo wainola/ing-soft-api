@@ -37,7 +37,7 @@ server.use('/api', accessControlList)
 
 
 //Public Endpoints
-server.post('/users', UserHandler.create)
+server.post('/alumnos', UserHandler.create)
 server.post('/login', UserHandler.login)
 
 // CLIENT ENDPOINTS

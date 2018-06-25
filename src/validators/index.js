@@ -6,8 +6,6 @@ const LIMIT_AMOUMT = 99999999
 export const userSchema = Joi.object().keys({
   user: Joi.object().keys({
     email: Joi.string().email().required(),
-    name: Joi.string().min(3).required(),
-    phone: Joi.string().min(8).required(),
     password: Joi.string().min(7).required(),
     role: Joi.any().valid(['STUDENT', 'GUARDIAN', 'EXECUTIVE']).required()
   }).required()
