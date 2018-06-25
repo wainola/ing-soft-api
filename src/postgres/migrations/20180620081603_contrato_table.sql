@@ -6,7 +6,7 @@ CREATE TABLE CONTRATO(
   monto_pagar numeric,
   cod_cliente text references CLIENTE(cod_cliente),
   rut_empleado text references EMPLEADO(rut_empleado)
-)
+);
 
 -- +goose Down
 -- SQL section 'Down' is executed when this migration is rolled back

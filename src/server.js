@@ -32,8 +32,8 @@ express.json()
 server.use(cors())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: false}))
-// server.use('/api', authorization)
-// server.use('/api', accessControlList)
+server.use('/api', authorization)
+server.use('/api', accessControlList)
 
 
 //Public Endpoints

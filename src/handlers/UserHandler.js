@@ -12,6 +12,8 @@ class UserHandler{
   static create(request, response){
     let reply
 
+    console.log('request body', request.body)
+
     const isValidJSON = Joi.validate(request.body, userSchema)
     if(isValidJSON.error !== null){
       reply = {

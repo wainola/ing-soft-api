@@ -7,7 +7,7 @@ CREATE TABLE ALUMNO(
   correo_alumno text not null,
   rut_apoderado text references APODERADO(rut_apoderado),
   cod_cliente text references CLIENTE(cod_cliente)
-)
+);
 
 -- +goose Down
 -- SQL section 'Down' is executed when this migration is rolled back
