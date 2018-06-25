@@ -19,3 +19,22 @@ export const credentialsSchema = Joi.object().keys({
     password: Joi.string().min(7).required()
   }).required()
 })
+
+export const paymentSchema = Joi.object().keys({
+  payment_details: Joi.object().keys({
+    id_pago: Joi.string().required(),
+    monto_pagado: Joi.number().required(),
+    rut_alumno: Joi.string().required(),
+    cod_contrato: Joi.string().required()
+  })
+})
+
+export const contractSchema = Joi.object().keys({
+  contract_details: Joi.object().keys({
+    cod_contrato: Joi.string().required(),
+    descripcion_contrato: Joi.string().required(),
+    monto_pagar: Joi.number().required(),
+    cod_cliente: Joi.string().required(),
+    rut_empleado: Joi.string().required()
+  })
+})
