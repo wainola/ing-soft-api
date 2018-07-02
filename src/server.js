@@ -41,6 +41,7 @@ server.post('/alumnos', UserHandler.create)
 server.post('/login', UserHandler.login)
 
 // CLIENT ENDPOINTS
+server.post('/api/clients', ClientHandler.create)
 // CONTRACT ENDPOINTS
 // EMPLOYEE ENDPOINTS
 // ENSURANCE ENDPOINTS

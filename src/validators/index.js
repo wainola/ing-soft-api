@@ -38,3 +38,7 @@ export const contractSchema = Joi.object().keys({
     rut_empleado: Joi.string().required()
   })
 })
+
+export const clientSchema = Joi.object().keys({
+  
+})
