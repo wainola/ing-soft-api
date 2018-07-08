@@ -57,6 +57,10 @@ class ClientHandler{
       
     })
   }
+
+  static getClient(request, response){
+    
+  }
 }
 
 export default ClientHandler
