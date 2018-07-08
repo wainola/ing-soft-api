@@ -40,5 +40,8 @@ export const contractSchema = Joi.object().keys({
 })
 
 export const clientSchema = Joi.object().keys({
-  
+  client: Joi.object().keys({
+    name: Joi.string().required(),
+    description: Joi.string().required()
+  })
 })
