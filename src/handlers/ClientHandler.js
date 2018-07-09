@@ -3,6 +3,7 @@ import Joi from 'joi'
 import uuid  from 'uuid'
 import { clientSchema } from '../validators/index'
 import { Client } from 'pg'
+import * as lodash from 'lodash'
 
 const clientConn = new Client()
 clientConn.connect()
@@ -77,6 +78,26 @@ class ClientHandler{
         clients: [...clients]
       }
       return response.status(200).send(reply)
+    })
+  }
+
+  static update(request, response){
+    let reply
+    const { client, data } = request.body
+    const updateClient = 'UPDATE cliente SET nombre_cliente = $1, descripcion_cliente = $2 WHERE cod_cliente = $3 RETURNING *'
+    const clientValues = [ data.name, data.description, client.client_cod ]
+    clientConn.query(updateClient, clientValues, (err, result) => {
+      if(err){
+        reply = {
+          error: {
+            message: 'Internal server error',
+            info: err
+          }
+        }
+        return response.status(500).send(reply)
+      }
+      const clientUpdated = result.rows[0]
+      return response.status(201).send(clientUpdated)
     })
   }
 }
