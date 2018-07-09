@@ -44,6 +44,7 @@ server.post('/login', UserHandler.login)
 server.post('/api/clients', ClientHandler.create)
 server.get('/api/clients', ClientHandler.getClient)
 server.patch('/api/clients', ClientHandler.update)
+server.delete('/api/clients', ClientHandler.delete)
 // CONTRACT ENDPOINTS
 // EMPLOYEE ENDPOINTS
 // ENSURANCE ENDPOINTS

@@ -100,6 +100,30 @@ class ClientHandler{
       return response.status(201).send(clientUpdated)
     })
   }
+
+  static delete(request, response){
+    let reply
+    const { client } = request.body
+    const deleteClient = 'DELETE FROM cliente WHERE cod_cliente = $1'
+    const clientValues = [ client.client_cod ]
+    clientConn.query(deleteClient, clientValues, (err, result) => {
+      if(err){
+        reply = {
+          error: {
+            message: 'Internal server error',
+            info: err
+          }
+        }
+        return response.status(500).send(reply)
+      }
+      if(result.rowCount === 1){
+        reply = {
+          message: 'Success on deleting'
+        }
+        return response.status(200).send(reply)
+      }
+    })
+  }
 }
 
 export default ClientHandler
