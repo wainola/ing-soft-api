@@ -71,8 +71,12 @@ class ClientHandler{
         }
         return response.status(500).send(reply)
       }
-
-      return response.status(200).send(result.rows)
+      
+      const clients = result.rows
+      reply = {
+        clients: [...clients]
+      }
+      return response.status(200).send(reply)
     })
   }
 }
