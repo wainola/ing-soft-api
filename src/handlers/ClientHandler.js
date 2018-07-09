@@ -59,7 +59,21 @@ class ClientHandler{
   }
 
   static getClient(request, response){
-    
+    let reply
+    const selectClients = 'SELECT * FROM cliente'
+    clientConn.query(selectClients, (err, result) => {
+      if(err){
+        reply = {
+          error: {
+            message: 'Internal server error',
+            info: err
+          }
+        }
+        return response.status(500).send(reply)
+      }
+
+      return response.status(200).send(result.rows)
+    })
   }
 }
 

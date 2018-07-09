@@ -42,6 +42,7 @@ server.post('/login', UserHandler.login)
 
 // CLIENT ENDPOINTS
 server.post('/api/clients', ClientHandler.create)
+server.get('/api/clients', ClientHandler.getClient)
 // CONTRACT ENDPOINTS
 // EMPLOYEE ENDPOINTS
 // ENSURANCE ENDPOINTS
