@@ -3,7 +3,6 @@ import Joi from 'joi'
 import uuid  from 'uuid'
 import { clientSchema } from '../validators/index'
 import { Client } from 'pg'
-import * as lodash from 'lodash'
 
 const clientConn = new Client()
 clientConn.connect()

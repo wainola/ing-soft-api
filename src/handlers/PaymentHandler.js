@@ -3,6 +3,9 @@ import { Client } from 'pg'
 
 import { paymentSchema } from '../validators/'
 
+const clientConn = new Client()
+clientConn.connect()
+
 class PaymentHandler {
   static getPaymentByStudent(request, response, next){
     
@@ -49,6 +52,28 @@ class PaymentHandler {
     })
 
     return response.status(201).send({'data': 'data posteada correctamente'})
+  }
+
+  static getPayment(reques, response){
+    let reply
+    const selectPayment = 'SELECT * FROM pago'
+    clientConn.query(selectPayment, (err, result) => {
+      if(err){
+        reply = {
+          error: {
+            message: 'Internal server error',
+            info: err
+          }
+        }
+        return response.status(500).send(reply)
+      }
+      const payments = result.rows[0]
+      reply = {
+        data: [...payments]
+      }
+
+      return response.status(200).send(reply)
+    })
   }
 }
 
