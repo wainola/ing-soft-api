@@ -47,16 +47,16 @@ server.patch('/api/clients', ClientHandler.update)
 server.delete('/api/clients', ClientHandler.delete)
 // CONTRACT ENDPOINTS
 // EMPLOYEE ENDPOINTS
+server.get('/api/employees', EmployeeHander.get)
+server.post('/api/employees', EmployeeHander.create)
+server.patch('/api/employees', EmployeeHander.update)
+server.delete('/api/employees', EmployeeHander.delete)
 // ENSURANCE ENDPOINTS
 // GUARDIAN ENDPOINTS
 // PAYMENT ENDPOINTS
 server.get('/api/payment/:rut_alumno', PaymentHandler.getPaymentByStudent)
 server.post('/api/payment', PaymentHandler.postPayment)
 // STUDENT ENDPOINTS
-server.get('/api/students', StudentHandler.get)
-server.post('/api/students', StudentHandler.create)
-server.patch('/api/students', StudentHandler.update)
-server.delete('/api/students', StudentHandler.delete)
 // TEST ENDPOINT
 server.get('/api/test', TestHandler.testEndpoint)
 

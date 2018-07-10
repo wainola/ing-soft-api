@@ -21,3 +21,5 @@ class StudentHandler{
     
   }
 }
+
+export default StudentHandler

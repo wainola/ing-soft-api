@@ -78,13 +78,14 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.0.0-beta.50",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.49",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.1",
-    "supertest": "^1.1.0",
-    "@babel/plugin-transform-async-to-generator": "^7.0.0-beta.50",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.49",
-    "babel-preset-stage-2": "^6.24.1"
+    "prettier": "1.13.7",
+    "supertest": "^1.1.0"
   },
   "engines": {
     "node": "8.1.1"
