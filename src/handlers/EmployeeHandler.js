@@ -66,10 +66,11 @@ class EmployeeHandler {
               }
               return response.status(500).send(reply)
           }
-          const { employees } = result.rows[0]
+          const employees = result.rows
           reply = {
-              employees: [ ...employeess]
-          } 
+              empleados: [ ...employees]
+          }
+          return response.status(200).send(reply) 
       }) 
   }
   static update(request, response) {
