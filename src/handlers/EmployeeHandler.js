@@ -98,7 +98,30 @@ class EmployeeHandler {
           return response.status(200).send(employeeUpdated)
       })
   }
-  static delete(request, response) {}
+  static delete(request, response) {
+      let reply
+      const { employee } = request.body
+      const deleteEmployee = 'DELETE FROM empleado WHERE rut_empleado = $1'
+      const empleadoValue = [ employee.rut_empleado ]
+      clientConn.query(deleteEmployee, empleadoValue, (err, result) => {
+          if(err){
+              reply = {
+                  error: {
+                      message: 'Internal server error',
+                      info: err
+                  }
+              }
+
+              return response.status(500).send(reply)
+          }
+          if(result.rowCount === 1){
+              reply = {
+                  message: 'Success on deleting'
+              }
+              return response.status(200).send(reply)
+          }
+      })
+    }
 }
 
 export default EmployeeHandler;
