@@ -99,6 +99,28 @@ class ContractHandler{
     })
   }
   static delete(request, response){
-    
+    let reply
+    const { contract } = request.body
+    const deleteContract = 'DELETE FROM contrato WHERE cod_contrato = $1'
+    const contractValue = [
+      contract.cod_contrato
+    ]
+    clientConn.query(deleteContract, contractValue, (err, result) => {
+      if(err){
+        reply = {
+          error: {
+            message: 'Internal server error',
+            info: err
+          }
+        }
+        return response.status(500).send(reply)
+      }
+      if(result.rowCount === 1){
+        reply = {
+          message: 'Success on deleting'
+        }
+        return response.status(200).send(reply)
+      }
+    })
   }
 }
