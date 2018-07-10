@@ -75,7 +75,28 @@ class ContractHandler{
     })
   }
   static update(request, response){
+    let reply
+    const { contract, data } = request.body
+    const updateContract = 'UPDATE contrato SET descripcion_contrato = $1, monto_pagar = $2 WHERE cod_contrato = $3 RETURNING *'
+    const contractValues = [
+      data.descripcion_contrato,
+      data.monto_pagar,
+      contract.cod_contrato
+    ]
 
+    clientConn.query(updateContract, contractValues, (err, result) => {
+      if(err){
+        reply = {
+          error: {
+            message: 'Internal server error',
+            info: err
+          }
+        }
+        return response.status(500).send(reply)
+      }
+      const contractUpdated = result.rows[0]
+      return response.status(200).send(contractUpdated)
+    })
   }
   static delete(request, response){
     
