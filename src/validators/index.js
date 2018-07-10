@@ -45,3 +45,7 @@ export const clientSchema = Joi.object().keys({
     description: Joi.string().required()
   })
 })
+
+export const studentSchema = Joi.object().keys({
+
+})
