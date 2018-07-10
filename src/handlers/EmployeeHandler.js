@@ -70,10 +70,34 @@ class EmployeeHandler {
           reply = {
               employees: [ ...employeess]
           } 
-      })
-      
+      }) 
   }
-  static update(request, response) {}
+  static update(request, response) {
+      let reply
+      const { employee, data } = request.body
+      const updateEmployee = 'UPDATE empleado SET, nombre_empleado = $1, apellido_empleado = $2, cargo_empleado = $3 WHERE rut_empleado = $4 RETURNING *'
+      const employeeValues = [
+          data.nombre_empleado,
+          data.apellido_empleado,
+          data.cargo_empleado,
+          employee.rut
+      ]
+
+      clientConn.query(updateEmployee, employeeValues, (err, result) => {
+          if(err){
+              reply = {
+                  error: {
+                      message: 'Internal server error',
+                      info: err
+                  }
+              }
+
+              return response.status(500).send(reply)
+          }
+          const employeeUpdated = result.rows[0]
+          return response.status(200).send(employeeUpdated)
+      })
+  }
   static delete(request, response) {}
 }
 
