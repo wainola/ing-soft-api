@@ -18,6 +18,7 @@ import GuardianHandler from './handlers/GuardianHandler'
 import PaymentHandler from './handlers/PaymentHandler'
 import StudentHandler from './handlers/StudentHandler'
 import TestHandler from './handlers/TestHandler'
+import { ServerRequest } from 'http';
 
 //dotenv
 dotenv.config({ silent: process.env.NODE_ENV !== 'development'})
@@ -55,6 +56,7 @@ server.delete('/api/employees', EmployeeHander.delete)
 // GUARDIAN ENDPOINTS
 // PAYMENT ENDPOINTS
 server.get('/api/payment/:rut_alumno', PaymentHandler.getPaymentByStudent)
+server.get('/api/payments', PaymentHandler.get)
 server.post('/api/payment', PaymentHandler.postPayment)
 // STUDENT ENDPOINTS
 // TEST ENDPOINT

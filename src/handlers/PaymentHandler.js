@@ -75,6 +75,27 @@ class PaymentHandler {
       return response.status(200).send(reply)
     })
   }
+
+  static get(request, response){
+    let reply
+    const selectPayments = 'SELECT * FROM pago'
+    clientConn.query(selectPayments, (err, result) => {
+      if(err){
+        reply = {
+          message: 'Internal server error',
+          info: err
+        }
+
+        return response.status(500).send(reply)
+      }
+      const payments = result.rows
+      reply = {
+        pagos: [...payments]
+      }
+
+      return response.status(200).send(reply)
+    })
+  }
 }
 
 export default PaymentHandler

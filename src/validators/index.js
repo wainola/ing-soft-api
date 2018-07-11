@@ -53,7 +53,7 @@ export const studentSchema = Joi.object().keys({
 export const employeeSchema = Joi.object().keys({
   employee: Joi.object().keys({
     rut_empleado: Joi.string().required(),
-    nombre_empelado: Joi.string().required(),
+    nombre_empleado: Joi.string().required(),
     apellido_empleado: Joi.string().required(),
     cargo_empleado: Joi.string().required()
   })
